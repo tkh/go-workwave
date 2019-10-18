@@ -28,8 +28,9 @@ type Client struct {
 	baseURL *url.URL
 	apiKey  string
 
-	Orders OrdersService
-	Routes RoutesService
+	Callback CallbackService
+	Orders   OrdersService
+	Routes   RoutesService
 }
 
 // New creates a new WorkWave API client with the given API key for authentication.
@@ -44,8 +45,10 @@ func New(apiKey string) (*Client, error) {
 		apiKey:  apiKey,
 	}
 
+	c.Callback = &callbackService{client: c}
 	c.Orders = &ordersService{client: c}
 	c.Routes = &routesService{client: c}
+
 	return c, nil
 }
 
