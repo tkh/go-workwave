@@ -14,7 +14,8 @@ const (
 
 // OrdersService is an interface to orders in the WorkWave API.
 type OrdersService interface {
-	List(context.Context, OrderListInput) ([]Order, error)
+	List(context.Context, OrdersListInput) ([]Order, error)
+	Get(context.Context, OrdersGetInput) ([]Order, error)
 }
 
 type ordersService struct {
@@ -69,24 +70,24 @@ type OrderStep struct {
 	CustomFields         map[string]string     `json:"customFields,omitempty"`
 }
 
-// OrderListInput is used to populate a call List Orders on the WorkWave API.
-type OrderListInput struct {
+type ordersResponse struct {
+	Orders map[string]Order `json:"orders"`
+}
+
+// OrdersListInput is used to populate a call to List Orders on the WorkWave API.
+type OrdersListInput struct {
 	TerritoryID string
 	Include     string
 	EligibleOn  string
 	AssignedOn  string
 }
 
-type orderListResponse struct {
-	Orders map[string]Order `json:"orders"`
-}
-
-// List retrieves the details for a Story.
-func (svc *ordersService) List(ctx context.Context, i OrderListInput) ([]Order, error) {
+// List retrieves the orders matching the filters provided in the given OrderListInput.
+func (svc *ordersService) List(ctx context.Context, i OrdersListInput) ([]Order, error) {
 	u := fmt.Sprintf(ordersBasePath, i.TerritoryID)
 	req, err := svc.client.NewRequest(ctx, http.MethodGet, u, nil)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to create order list request")
+		return nil, errors.Wrap(err, "failed to create orders list request")
 	}
 
 	// Query params
@@ -102,7 +103,39 @@ func (svc *ordersService) List(ctx context.Context, i OrderListInput) ([]Order, 
 	}
 	req.URL.RawQuery = q.Encode()
 
-	olr := &orderListResponse{}
+	olr := &ordersResponse{}
+	if _, err := svc.client.Do(ctx, req, olr); err != nil {
+		return nil, err
+	}
+
+	var orders []Order
+	for _, order := range olr.Orders {
+		orders = append(orders, order)
+	}
+
+	return orders, nil
+}
+
+// OrdersGetInput is used to populate a call Get Orders on the WorkWave API.
+type OrdersGetInput struct {
+	TerritoryID string
+	IDs         []string
+}
+
+// Get orders for the given IDs.
+func (svc *ordersService) Get(ctx context.Context, i OrdersGetInput) ([]Order, error) {
+	u := fmt.Sprintf(ordersBasePath, i.TerritoryID)
+	b := struct {
+		IDs []string `json:"ids"`
+	}{
+		IDs: i.IDs,
+	}
+	req, err := svc.client.NewRequest(ctx, http.MethodGet, u, b)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to create orders get request")
+	}
+
+	olr := &ordersResponse{}
 	if _, err := svc.client.Do(ctx, req, olr); err != nil {
 		return nil, err
 	}
