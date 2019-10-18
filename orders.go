@@ -78,7 +78,7 @@ type OrderListInput struct {
 }
 
 type orderListResponse struct {
-	Orders map[string]interface{}
+	Orders map[string]Order `json:"orders"`
 }
 
 // List retrieves the details for a Story.
@@ -103,8 +103,14 @@ func (svc *ordersService) List(ctx context.Context, i OrderListInput) ([]Order, 
 	req.URL.RawQuery = q.Encode()
 
 	olr := &orderListResponse{}
-	svc.client.Do(ctx, req, olr)
+	if _, err := svc.client.Do(ctx, req, olr); err != nil {
+		return nil, err
+	}
 
-	// To be continued …
-	return nil, nil
+	var orders []Order
+	for _, order := range olr.Orders {
+		orders = append(orders, order)
+	}
+
+	return orders, nil
 }

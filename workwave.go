@@ -11,6 +11,8 @@ import (
 	"net/url"
 	"runtime"
 	"time"
+
+	"github.com/pkg/errors"
 )
 
 const (
@@ -25,6 +27,8 @@ type Client struct {
 	client  *http.Client
 	baseURL *url.URL
 	apiKey  string
+
+	Orders OrdersService
 }
 
 // New creates a new WorkWave API client with the given API key for authentication.
@@ -38,6 +42,8 @@ func New(apiKey string) (*Client, error) {
 		baseURL: baseURL,
 		apiKey:  apiKey,
 	}
+
+	c.Orders = &ordersService{client: c}
 	return c, nil
 }
 
@@ -113,12 +119,12 @@ func (c *Client) Do(ctx context.Context, req *http.Request, v interface{}) (*htt
 		if w, ok := v.(io.Writer); ok {
 			_, err = io.Copy(w, res.Body)
 			if err != nil {
-				return nil, err
+				return nil, errors.Wrap(err, "failed to copy response body to writer")
 			}
 		} else {
 			err = json.NewDecoder(res.Body).Decode(v)
 			if err != nil {
-				return nil, err
+				return nil, errors.Wrap(err, "failed to decode JSON")
 			}
 		}
 	}
