@@ -14,28 +14,28 @@ type Order struct {
 	IsService      bool           `json:"isService,omitempty"`
 }
 
-// Eligibility represents Eligibility for an Order in the WorkWave API
+// Eligibility represents Eligibility for an Order in the WorkWave API.
 type Eligibility struct {
 	Type    string   `json:"type,omitempty"`    // One of: on, by, any
 	ByDate  string   `json:"byDate,omitempty"`  // Used when type = by, format: yyyyMMdd
 	OnDates []string `json:"onDates,omitempty"` // Used when type = on, format: yyyyMMdd
 }
 
-// Location represents a Location in the WorkWave API
+// Location represents a Location in the WorkWave API.
 type Location struct {
 	Address string  `json:"address,omitempty"`
 	LatLng  *[2]int `json:"latLng,omitempty"` // ie, {33817872, -87266893}
 	Status  string  `json:"status,omitempty"`
 }
 
-// TimeWindow represents a time window in the WorkWave API
+// TimeWindow represents a time window in the WorkWave API.
 type TimeWindow struct {
 	StartSec int `json:"startSec,omitempty"`
 	EndSec   int `json:"endSec,omitempty"`
 }
 
-// OrderStep represents an OrderStep within an Order in the WorkWave API
-// An OrderStep can be `pickup` or `delivery`
+// OrderStep represents an OrderStep within an Order in the WorkWave API.
+// An OrderStep can be `pickup` or `delivery`.
 type OrderStep struct {
 	DepotID              string                `json:"depotId,omitempty"`
 	Location             Location              `json:"location,omitempty"`
