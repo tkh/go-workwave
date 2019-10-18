@@ -29,6 +29,7 @@ type Client struct {
 	apiKey  string
 
 	Orders OrdersService
+	Routes RoutesService
 }
 
 // New creates a new WorkWave API client with the given API key for authentication.
@@ -44,6 +45,7 @@ func New(apiKey string) (*Client, error) {
 	}
 
 	c.Orders = &ordersService{client: c}
+	c.Routes = &routesService{client: c}
 	return c, nil
 }
 

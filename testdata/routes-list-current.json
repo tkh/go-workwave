@@ -1,0 +1,531 @@
+{
+  "routes": {
+    "0d8855e6-28a0-4e89-9c67-b44c66c39ba6-20151204": {
+      "id": "0d8855e6-28a0-4e89-9c67-b44c66c39ba6-20151204",
+      "revision": 182,
+      "date": "20151204",
+      "vehicleId": "0d8855e6-28a0-4e89-9c67-b44c66c39ba6",
+      "driverId": "a08213e6-673f-4efc-955e-2bf587813162",
+      "steps": [
+        {
+          "type": "departure",
+          "idleTimeSec": 0,
+          "perStopTimeSec": 0,
+          "arrivalSec": 0,
+          "startSec": 0,
+          "endSec": 32329,
+          "driveToNextSec": -1,
+          "distanceToNextMt": -1,
+          "stopIdx": 0,
+          "displayLabel": ""
+        },
+        {
+          "type": "delivery",
+          "orderId": "49269a16-479c-4531-8ffd-513b7ccd0621",
+          "idleTimeSec": 0,
+          "perStopTimeSec": 0,
+          "arrivalSec": 34200,
+          "startSec": 34200,
+          "endSec": 36000,
+          "driveToNextSec": -1,
+          "distanceToNextMt": -1,
+          "stopIdx": 1,
+          "displayLabel": "1.1",
+          "trackingData": {
+            "driverId": "a08213e6-673f-4efc-955e-2bf587813162",
+            "vehicleId": "0d8855e6-28a0-4e89-9c67-b44c66c39ba6",
+            "timeInSec": 34526,
+            "timeInLatLng": [33817872, -87266893],
+            "timeOutSec": -1,
+            "timeOutLatLng": null,
+            "status": "done",
+            "statusSec": 35912,
+            "statusLatLng": [33817872, -87266893],
+            "timeInDetectedSec": 34201,
+            "timeInDetectedLatLng": [33817942, -87266921],
+            "timeOutDetectedSec": 35935,
+            "timeOutDetectedLatLng": [33817404, -87266657]
+          }
+        },
+        {
+          "type": "pickup",
+          "orderId": "0dd9cab0-d1db-45de-b291-31a0b66d5562",
+          "idleTimeSec": 0,
+          "perStopTimeSec": 0,
+          "arrivalSec": 39600,
+          "startSec": 39600,
+          "endSec": 40600,
+          "driveToNextSec": -1,
+          "distanceToNextMt": -1,
+          "stopIdx": 2,
+          "displayLabel": "1.2",
+          "trackingData": {
+            "driverId": "a08213e6-673f-4efc-955e-2bf587813162",
+            "vehicleId": "0d8855e6-28a0-4e89-9c67-b44c66c39ba6",
+            "timeInSec": 39600,
+            "timeInLatLng": [33480873, -86788220],
+            "timeOutSec": 40720,
+            "timeOutLatLng": [33480873, -86788220],
+            "status": "done",
+            "statusSec": 40780,
+            "statusLatLng": [33480873, -86788220],
+            "timeInDetectedSec": 39582,
+            "timeInDetectedLatLng": [33481223, -86787985],
+            "timeOutDetectedSec": 40795,
+            "timeOutDetectedLatLng": [33481223, -86788790]
+          }
+        }
+      ],
+      "trackingData": {
+        "driversTrackingData": {
+          "a08213e6-673f-4efc-955e-2bf587813162": {
+            "current": {
+              "departure": {
+                "sec": 32329,
+                "latLng": [33817872, -87266893]
+              },
+              "arrival": {
+                "sec": 40851,
+                "latLng": [33817942, -87266921]
+              }
+            },
+            "history": [
+              {
+                "eventType": "departure",
+                "action": "upsert",
+                "fix": {
+                  "sec": 28800,
+                  "latLng": [33817872, -87266893]
+                }
+              },
+              {
+                "eventType": "arrival",
+                "action": "upsert",
+                "fix": {
+                  "sec": 40851,
+                  "latLng": [33817942, -87266921]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7-20151203": {
+      "id": "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7-20151203",
+      "revision": 113,
+      "date": "20151203",
+      "vehicleId": "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7",
+      "driverId": "a3935987-4944-462f-b602-4a3a12beeeff",
+      "steps": [
+        {
+          "type": "departure",
+          "idleTimeSec": 0,
+          "perStopTimeSec": 0,
+          "arrivalSec": 0,
+          "startSec": 0,
+          "endSec": 28800,
+          "driveToNextSec": 2918,
+          "distanceToNextMt": 73402,
+          "stopIdx": 0,
+          "displayLabel": ""
+        },
+        {
+          "type": "pickup",
+          "orderId": "e2524914-3611-433b-9209-3ee59ee3996e",
+          "idleTimeSec": 0,
+          "perStopTimeSec": 0,
+          "arrivalSec": 31718,
+          "startSec": 31718,
+          "endSec": 32318,
+          "driveToNextSec": 2917,
+          "distanceToNextMt": 73549,
+          "stopIdx": 1,
+          "displayLabel": "2.1"
+        },
+        {
+          "type": "delivery",
+          "orderId": "deb5a845-40f8-42e0-963e-9646531894a4",
+          "idleTimeSec": 0,
+          "perStopTimeSec": 0,
+          "arrivalSec": 28848,
+          "startSec": 28848,
+          "endSec": 29748,
+          "driveToNextSec": 48,
+          "distanceToNextMt": 334,
+          "stopIdx": 2,
+          "displayLabel": "2.2"
+        }
+      ],
+      "trackingData": {
+        "driversTrackingData": {
+          "a3935987-4944-462f-b602-4a3a12beeeff": {
+            "current": {
+              "departure": {
+                "sec": 28800,
+                "latLng": [33817872, -87266893]
+              },
+              "arrival": null
+            },
+            "history": [
+              {
+                "eventType": "departure",
+                "action": "upsert",
+                "fix": {
+                  "sec": 28800,
+                  "latLng": [33817872, -87266893]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "orders": {
+    "49269a16-479c-4531-8ffd-513b7ccd0621": {
+      "id": "49269a16-479c-4531-8ffd-513b7ccd0621",
+      "name": "Order 1",
+      "eligibility": {
+        "type": "on",
+        "onDates": ["20151204", "20151205", "20151206"]
+      },
+      "forceVehicleId": null,
+      "priority": 0,
+      "loads": {},
+      "pickup": null,
+      "delivery": {
+        "depotId": null,
+        "location": {
+          "address": "3101-3199 Florida Ave, Jasper, AL 35501, USA",
+          "latLng": [33817872, -87266893],
+          "status": "OK"
+        },
+        "timeWindows": [
+          {
+            "startSec": 30600,
+            "endSec": 37800
+          },
+          {
+            "startSec": 45000,
+            "endSec": 55800
+          }
+        ],
+        "notes": "demonstrate the concept of multiple time windows as well as eligibility date range",
+        "serviceTimeSec": 600,
+        "tagsIn": [],
+        "tagsOut": [],
+        "customFields": {}
+      },
+      "isService": false
+    },
+    "0dd9cab0-d1db-45de-b291-31a0b66d5562": {
+      "id": "0dd9cab0-d1db-45de-b291-31a0b66d5562",
+      "name": "Order 4",
+      "eligibility": {
+        "type": "on",
+        "onDates": ["20151204"]
+      },
+      "forceVehicleId": null,
+      "priority": 0,
+      "loads": {
+        "frozen ton": 100,
+        "regular ton": 300
+      },
+      "pickup": {
+        "depotId": null,
+        "location": {
+          "address": "1919 28th Ave S, Birmingham, AL 35209, United States",
+          "latLng": [33480873, -86788220],
+          "status": "OK"
+        },
+        "timeWindows": [],
+        "notes": "demonstrate the concept of loads. Furthermore this Order involves both a Pickup and a Delivery(meaning that the Vehicle servicing it will pick up loads at one location and delivered them at a different location)",
+        "serviceTimeSec": 0,
+        "tagsIn": [],
+        "tagsOut": [],
+        "customFields": {}
+      },
+      "delivery": {
+        "depotId": null,
+        "location": {
+          "address": "1411 Indiana Ave, Jasper, AL 35501, USA",
+          "latLng": [33836824, -87266029],
+          "status": "OK"
+        },
+        "timeWindows": [
+          {
+            "startSec": 46800,
+            "endSec": 52200
+          },
+          {
+            "startSec": 55800,
+            "endSec": 59400
+          }
+        ],
+        "notes": "Fragile",
+        "serviceTimeSec": 1500,
+        "tagsIn": [],
+        "tagsOut": [],
+        "customFields": {
+          "Building Entrance Code": "0000"
+        }
+      },
+      "isService": false
+    },
+    "e2524914-3611-433b-9209-3ee59ee3996e": {
+      "id": "e2524914-3611-433b-9209-3ee59ee3996e",
+      "name": "Order 6",
+      "eligibility": {
+        "type": "any",
+        "onDates": ["20151203"]
+      },
+      "forceVehicleId": "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7",
+      "priority": 0,
+      "loads": {
+        "people": 400
+      },
+      "pickup": {
+        "depotId": null,
+        "location": {
+          "address": "1919 28th Ave S, Birmingham, AL 35209, United States",
+          "latLng": [33480873, -86788220],
+          "status": "OK"
+        },
+        "timeWindows": [],
+        "notes": "Demonstrate the concept of force a vehicle, apply different eligibility type",
+        "serviceTimeSec": 600,
+        "tagsIn": [],
+        "tagsOut": [],
+        "customFields": {}
+      },
+      "delivery": null,
+      "isService": false
+    },
+    "deb5a845-40f8-42e0-963e-9646531894a4": {
+      "id": "deb5a845-40f8-42e0-963e-9646531894a4",
+      "name": "order2",
+      "eligibility": {
+        "type": "on",
+        "onDates": ["20151205"]
+      },
+      "forceVehicleId": "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7",
+      "priority": 0,
+      "loads": {},
+      "pickup": null,
+      "delivery": {
+        "depotId": null,
+        "location": {
+          "address": "33.833605,-87.277556",
+          "latLng": [33833604, -87277556],
+          "status": "OK"
+        },
+        "timeWindows": [],
+        "notes": "",
+        "serviceTimeSec": 900,
+        "tagsIn": [],
+        "tagsOut": [],
+        "customFields": {}
+      },
+      "isService": false
+    }
+  },
+  "vehicles": {
+    "0d8855e6-28a0-4e89-9c67-b44c66c39ba6": {
+      "id": "0d8855e6-28a0-4e89-9c67-b44c66c39ba6",
+      "idx": 1,
+      "externalId": "Vehicle 1",
+      "tracked": true,
+      "color": "009944",
+      "settings": {
+        "20151203": {
+          "available": true,
+          "notes": "",
+          "departureDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "arrivalDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "timeWindow": {
+            "startSec": 28800,
+            "endSec": 61200
+          },
+          "flexStartTime": true,
+          "perStopCost": 0,
+          "perStopTimeSec": 0,
+          "maxWorkingTimeSec": 0,
+          "maxDrivingTimeSec": 0,
+          "maxDistanceMt": 0,
+          "maxOrders": 0,
+          "breaks": [],
+          "loadCapacities": {
+            "frozen ton": 500,
+            "regular ton": 500
+          },
+          "regionIds": ["ddcbe348-5b4d-483d-9d6c-1b149120ca7e"],
+          "activationCost": 0,
+          "drivingTimeCost": 2000,
+          "idleTimeCost": 2000,
+          "serviceTimeCost": 2000,
+          "breakTimeCost": 2000,
+          "kmCost": 100,
+          "tags": ["frozen", "regular"],
+          "speedFactor": 100
+        },
+        "20151204": {
+          "available": true,
+          "notes": "",
+          "departureDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "arrivalDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "timeWindow": {
+            "startSec": 28800,
+            "endSec": 61200
+          },
+          "flexStartTime": true,
+          "perStopCost": 0,
+          "perStopTimeSec": 0,
+          "maxWorkingTimeSec": 0,
+          "maxDrivingTimeSec": 0,
+          "maxDistanceMt": 0,
+          "maxOrders": 0,
+          "breaks": [],
+          "loadCapacities": {
+            "frozen ton": 500,
+            "regular ton": 500
+          },
+          "regionIds": ["ddcbe348-5b4d-483d-9d6c-1b149120ca7e"],
+          "activationCost": 0,
+          "drivingTimeCost": 2000,
+          "idleTimeCost": 2000,
+          "serviceTimeCost": 2000,
+          "breakTimeCost": 2000,
+          "kmCost": 100,
+          "tags": ["frozen", "regular"],
+          "speedFactor": 100
+        }
+      }
+    },
+    "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7": {
+      "id": "31656f79-cba7-4bcf-a959-e3fe3f7ca2a7",
+      "idx": 2,
+      "externalId": "Vehicle 2",
+      "tracked": true,
+      "color": "5500FF",
+      "settings": {
+        "20151203": {
+          "available": true,
+          "notes": "",
+          "departureDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "arrivalDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "timeWindow": {
+            "startSec": 28800,
+            "endSec": 61200
+          },
+          "flexStartTime": true,
+          "perStopCost": 0,
+          "perStopTimeSec": 0,
+          "maxWorkingTimeSec": 0,
+          "maxDrivingTimeSec": 0,
+          "maxDistanceMt": 0,
+          "maxOrders": 0,
+          "breaks": [],
+          "loadCapacities": {
+            "people": 600
+          },
+          "regionIds": ["ddcbe348-5b4d-483d-9d6c-1b149120ca7e"],
+          "activationCost": 0,
+          "drivingTimeCost": 2000,
+          "idleTimeCost": 2000,
+          "serviceTimeCost": 2000,
+          "breakTimeCost": 2000,
+          "kmCost": 100,
+          "tags": ["heavy"],
+          "speedFactor": 100
+        },
+        "20151204": {
+          "available": true,
+          "notes": "",
+          "departureDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "arrivalDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "timeWindow": {
+            "startSec": 28800,
+            "endSec": 61200
+          },
+          "flexStartTime": true,
+          "perStopCost": 0,
+          "perStopTimeSec": 0,
+          "maxWorkingTimeSec": 0,
+          "maxDrivingTimeSec": 0,
+          "maxDistanceMt": 0,
+          "maxOrders": 0,
+          "breaks": [],
+          "loadCapacities": {
+            "people": 600
+          },
+          "regionIds": ["ddcbe348-5b4d-483d-9d6c-1b149120ca7e"],
+          "activationCost": 0,
+          "drivingTimeCost": 2000,
+          "idleTimeCost": 2000,
+          "serviceTimeCost": 2000,
+          "breakTimeCost": 2000,
+          "kmCost": 100,
+          "tags": ["heavy"],
+          "speedFactor": 100
+        },
+        "20151205": {
+          "available": true,
+          "notes": "",
+          "departureDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "arrivalDepotId": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+          "timeWindow": {
+            "startSec": 28800,
+            "endSec": 61200
+          },
+          "flexStartTime": true,
+          "perStopCost": 0,
+          "perStopTimeSec": 0,
+          "maxWorkingTimeSec": 0,
+          "maxDrivingTimeSec": 0,
+          "maxDistanceMt": 0,
+          "maxOrders": 0,
+          "breaks": [],
+          "loadCapacities": {
+            "people": 600
+          },
+          "regionIds": ["ddcbe348-5b4d-483d-9d6c-1b149120ca7e"],
+          "activationCost": 0,
+          "drivingTimeCost": 2000,
+          "idleTimeCost": 2000,
+          "serviceTimeCost": 2000,
+          "breakTimeCost": 2000,
+          "kmCost": 100,
+          "tags": ["heavy"],
+          "speedFactor": 100
+        }
+      }
+    }
+  },
+  "depots": {
+    "08f2f204-caf6-4b98-8767-9fd4e3b46307": {
+      "id": "08f2f204-caf6-4b98-8767-9fd4e3b46307",
+      "name": "TEST",
+      "setupCost": -1,
+      "setupTimeSec": -1,
+      "location": {
+        "address": "320 20th St W, Jasper, AL 35501, USA",
+        "latLng": [33831316, -87278355],
+        "status": "OK"
+      },
+      "color": "998800"
+    }
+  },
+  "drivers": {
+    "a08213e6-673f-4efc-955e-2bf587813162": {
+      "id": "a08213e6-673f-4efc-955e-2bf587813162",
+      "name": "Driver 2",
+      "email": "driver2@example.com"
+    },
+    "a3935987-4944-462f-b602-4a3a12beeeff": {
+      "id": "a3935987-4944-462f-b602-4a3a12beeeff",
+      "name": "Driver 1",
+      "email": "driver1@example.com"
+    }
+  }
+}
