@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	agentString = "patch-gardens/go-workwave"
+	agentString = "tkh/go-workwave"
 	contentType = "application/json"
 	apiBaseURL  = "https://wwrm.workwave.com"
 )

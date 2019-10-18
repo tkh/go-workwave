@@ -1,4 +1,4 @@
-module github.com/patch-gardens/go-workwave
+module github.com/tkh/go-workwave
 
 go 1.13
 
