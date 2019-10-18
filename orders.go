@@ -16,6 +16,7 @@ const (
 type OrdersService interface {
 	List(context.Context, OrdersListInput) ([]Order, error)
 	Get(context.Context, OrdersGetInput) ([]Order, error)
+	Add(context.Context, OrdersAddInput) (string, error)
 }
 
 type ordersService struct {
@@ -146,4 +147,32 @@ func (svc *ordersService) Get(ctx context.Context, i OrdersGetInput) ([]Order, e
 	}
 
 	return orders, nil
+}
+
+// OrdersAddInput is used to populate a call Add Orders on the WorkWave API.
+type OrdersAddInput struct {
+	TerritoryID       string  `json:"-"`
+	Orders            []Order `json:"orders"`
+	Strict            bool    `json:"strict"`
+	AcceptBadGeocodes bool    `json:"acceptBadGeocodes"`
+}
+
+type ordersAddResponse struct {
+	RequestID string `json:"requestId"`
+}
+
+// Add the given orders to WorkWave via the API.
+// This API call is asynchronous and the WorkWave API `requestId` value will be returned.
+func (svc *ordersService) Add(ctx context.Context, i OrdersAddInput) (string, error) {
+	u := fmt.Sprintf(ordersBasePath, i.TerritoryID)
+	req, err := svc.client.NewRequest(ctx, http.MethodPost, u, i)
+	if err != nil {
+		return "", errors.Wrap(err, "failed to create orders add request")
+	}
+
+	oar := &ordersAddResponse{}
+	if _, err := svc.client.Do(ctx, req, oar); err != nil {
+		return "", err
+	}
+	return oar.RequestID, nil
 }

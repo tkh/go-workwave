@@ -1,6 +1,7 @@
 package workwave
 
 import (
+	"fmt"
 	"net/http"
 	"net/url"
 	"path/filepath"
@@ -10,7 +11,6 @@ import (
 )
 
 func TestOrdersList(t *testing.T) {
-
 	setup()
 	defer teardown()
 	c := qt.New(t)
@@ -33,7 +33,6 @@ func TestOrdersList(t *testing.T) {
 }
 
 func TestOrdersGet(t *testing.T) {
-
 	setup()
 	defer teardown()
 	c := qt.New(t)
@@ -54,4 +53,27 @@ func TestOrdersGet(t *testing.T) {
 
 	c.Assert(err, qt.IsNil)
 	c.Assert(len(o), qt.Equals, 2)
+}
+
+func TestOrdersAdd(t *testing.T) {
+	setup()
+	defer teardown()
+	c := qt.New(t)
+
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, `{"requestId": "509900a5-392e-4d34-bcfe-90cc6bf3ad47"}`)
+	})
+
+	client, _ := New("api-key")
+	client.baseURL, _ = url.Parse(server.URL)
+
+	rID, err := client.Orders.Add(ctx, OrdersAddInput{
+		TerritoryID:       "territory",
+		Orders:            []Order{},
+		Strict:            false,
+		AcceptBadGeocodes: false,
+	})
+
+	c.Assert(err, qt.IsNil)
+	c.Assert(rID, qt.Equals, "509900a5-392e-4d34-bcfe-90cc6bf3ad47")
 }
