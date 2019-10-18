@@ -1,5 +1,26 @@
 package workwave
 
+import (
+	"context"
+	"fmt"
+	"net/http"
+
+	"github.com/pkg/errors"
+)
+
+const (
+	ordersBasePath = "/api/v1/territories/%s/orders"
+)
+
+// OrdersService is an interface to orders in the WorkWave API.
+type OrdersService interface {
+	List(context.Context, OrderListInput) ([]Order, error)
+}
+
+type ordersService struct {
+	client *Client
+}
+
 // Order represents an Order in the WorkWave API
 // This structure can be used as input for order calls by omitting ID.
 type Order struct {
@@ -46,4 +67,44 @@ type OrderStep struct {
 	TagsIn               []string              `json:"tagsIn,omitempty"`
 	TagsOut              []string              `json:"tagsOut,omitempty"`
 	CustomFields         map[string]string     `json:"customFields,omitempty"`
+}
+
+// OrderListInput is used to populate a call List Orders on the WorkWave API.
+type OrderListInput struct {
+	TerritoryID string
+	Include     string
+	EligibleOn  string
+	AssignedOn  string
+}
+
+type orderListResponse struct {
+	Orders map[string]interface{}
+}
+
+// List retrieves the details for a Story.
+func (svc *ordersService) List(ctx context.Context, i OrderListInput) ([]Order, error) {
+	u := fmt.Sprintf(ordersBasePath, i.TerritoryID)
+	req, err := svc.client.NewRequest(ctx, http.MethodGet, u, nil)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to create order list request")
+	}
+
+	// Query params
+	q := req.URL.Query()
+	if i.Include != "" {
+		q.Add("include", i.Include)
+	}
+	if i.EligibleOn != "" {
+		q.Add("eligibleOn", i.EligibleOn)
+	}
+	if i.AssignedOn != "" {
+		q.Add("assignedOn", i.AssignedOn)
+	}
+	req.URL.RawQuery = q.Encode()
+
+	olr := &orderListResponse{}
+	svc.client.Do(ctx, req, olr)
+
+	// To be continued …
+	return nil, nil
 }
